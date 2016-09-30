@@ -2,9 +2,46 @@
 
 ### Lesson 1:  
 
-Add nextbus.py (1.3) 
+* If you forgot to save output in a variable you can use underscore _ to get the the reusult of the last operation that you performed . only available in interactive mode.
+* For hlep : example help(print)
+* To quit  : quit()  or CTRL+D 
 
-use _ to get the previous result 
+Add nextbus.py
+
+```python
+# Creating a File  with some modification to take input 
+
+import sys
+
+print('Commond options:', sys.argv) # Will allow to pass differnet arguments in the command line
+raise SystemExit(0) # To make program quit 
+
+import urllib.request # Allows to make http call to feth website 
+u = urllib.request.urlopen('http://ctabustracker.com/bustime/map/getStopPredictions.jsp?stop=14787&route=22')
+data = u.read()
+
+from xml.etree.ElementTree import XML
+doc =XML(data)
+
+for pt in doc.findall('.//pt'):
+    print(pt.text)
+    
+```
+
+
+
+```Python
+# nextbus.py
+
+import sys
+if len(sys.argv) !=3:
+    
+print('Command options:, Sys.argv)
+import urllib.request
+
+```
+
+
 
 Python debugging
 ===============
